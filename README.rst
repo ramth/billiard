@@ -1,3 +1,7 @@
+Patched billiard in a similar fasion to https://github.com/pyinstaller/pyinstaller/pull/2505 to allow for spawn method in os x without infinite loop of creating new processes.
+
+
+
 ========
 billiard
 ========
