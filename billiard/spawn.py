@@ -122,6 +122,13 @@ def freeze_support():
     '''
     Run code for process object if this in not the main process
     '''
+    if 'billiad.semaphore_tracker' in sys.argv[-1]:
+        m = re.compile('.*main\((\d+)\)$'.).match(sys.argv[-1])
+        fd = int(m.group(1))
+        import billiard.semaphore_tracker
+        billiard.semaphore_tracker.main(fd)
+        sys.exit()
+
     if is_forking(sys.argv):
         kwds = {}
         for arg in sys.argv[2:]:
